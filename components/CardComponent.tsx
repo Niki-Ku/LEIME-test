@@ -10,7 +10,7 @@ const CardComponent = ({
 }: {
   imgUrl: string;
   title: string;
-  likes: number;
+  likes: string;
   link: string;
 }) => {
   return (
@@ -20,7 +20,8 @@ const CardComponent = ({
           alt="Card background"
           className="object-cover rounded-xl"
           src={imgUrl}
-          width={270}
+          // width={270}
+          // width={auto}
         />
       </CardBody>
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">

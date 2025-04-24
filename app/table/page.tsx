@@ -3,7 +3,6 @@
 import { useDisclosure } from "@heroui/modal";
 import { useCallback, useEffect, useState } from "react";
 
-import { title } from "@/components/primitives";
 import { columns } from "@/config/tableColumns";
 import { IMeme } from "@/types";
 import { validateTitle, validateImgUrlError } from "@/utils/inputsValidation";
@@ -18,7 +17,7 @@ const TablePage = () => {
     id: 0,
     title: "",
     imgUrl: "",
-    likes: 0,
+    likes: "",
     link: "",
   });
   const [fieldsErrors, setFieldsErrors] = useState<{
@@ -61,6 +60,7 @@ const TablePage = () => {
     [editedMemeObj],
   );
 
+  // update this
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       if (fieldsErrors.imgUrl)
@@ -83,7 +83,7 @@ const TablePage = () => {
 
   return (
     <div className="text-center">
-      <h1 className={title()}>Table Page</h1>
+      <h1 className="text-4xl">Table Page</h1>
       <MemeTable columns={columns} memes={memes} onEditPress={onEditPress} />
       <EditMemeModal
         editedMemeObj={editedMemeObj}

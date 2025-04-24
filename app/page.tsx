@@ -1,7 +1,6 @@
 "use client";
 import { useEffect } from "react";
 
-import { title } from "@/components/primitives";
 import { memes } from "@/config/memes";
 import {
   setItemToLocalStorage,
@@ -22,8 +21,8 @@ const Home = () => {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
-        <span className={title({ color: "violet" })}>Memes&nbsp;</span>
-        <span className={title()}>test task&nbsp;</span>
+        <span className="text-4xl">Memes&nbsp;</span>
+        <span className="text-violet-600 text-4xl">test task&nbsp;</span>
       </div>
     </section>
   );

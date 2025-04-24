@@ -16,3 +16,17 @@ export const validateImgUrlError = (url: string): boolean => {
     return true;
   }
 };
+
+export const validateLikes = (likes: string): boolean => {
+  return !(Number(likes) >= 0 && Number(likes) < 100);
+};
+
+export const validateLink = (link: string): boolean => {
+  try {
+    new URL(link);
+
+    return false;
+  } catch {
+    return true;
+  }
+};

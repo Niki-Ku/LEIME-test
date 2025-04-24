@@ -6,43 +6,66 @@ import ModalComponent from "./ModalComponent";
 
 import { IMeme } from "@/types";
 
-const EditMemeModal = ({
+const AddMemeModal = ({
   isOpen,
   onOpenChange,
   onSubmit,
-  editedMemeObj,
+  addMemeObj,
   fieldsErrors,
   handleInputChange,
 }: {
   isOpen: boolean;
   onOpenChange: () => void;
-  onSubmit: (e: React.FormEvent, id: number) => void;
-  editedMemeObj: IMeme;
-  fieldsErrors: { title: boolean; imgUrl: boolean };
+  onSubmit: (e: React.FormEvent) => void;
+  addMemeObj: IMeme;
+  fieldsErrors: {
+    title: boolean;
+    imgUrl: boolean;
+    likes: boolean;
+    link: boolean;
+  };
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
   return (
     <ModalComponent isOpen={isOpen} onOpenChange={onOpenChange}>
-      <form onSubmit={(e) => onSubmit(e, editedMemeObj.id)}>
-        <ModalHeader>Edit Meme</ModalHeader>
+      <form onSubmit={onSubmit}>
+        <ModalHeader>Add Meme</ModalHeader>
         <ModalBody>
-          <span>Edited meme id: {editedMemeObj.id}</span>
           <Input
             errorMessage="Title should be from 3 to 100 symbols length"
             isInvalid={fieldsErrors.title}
             label="Title"
             name="title"
             type="text"
-            value={editedMemeObj.title}
+            value={addMemeObj.title}
             onChange={(e) => handleInputChange(e)}
           />
           <Input
             errorMessage="Url is not valid jpg"
             isInvalid={fieldsErrors.imgUrl}
-            label="Image"
+            label="Image Url"
             name="imgUrl"
             type="text"
-            value={editedMemeObj.imgUrl}
+            value={addMemeObj.imgUrl}
+            onChange={(e) => handleInputChange(e)}
+          />
+          <Input
+            errorMessage="Url is not valid"
+            isInvalid={fieldsErrors.link}
+            label="Link"
+            name="link"
+            placeholder="https://www.google.com"
+            type="text"
+            value={addMemeObj.link}
+            onChange={(e) => handleInputChange(e)}
+          />
+          <Input
+            errorMessage="Likes should be a number from 0 to 99"
+            isInvalid={fieldsErrors.likes}
+            label="Likes"
+            name="likes"
+            type="number"
+            value={addMemeObj.likes}
             onChange={(e) => handleInputChange(e)}
           />
         </ModalBody>
@@ -56,4 +79,4 @@ const EditMemeModal = ({
   );
 };
 
-export default EditMemeModal;
+export default AddMemeModal;

@@ -8,6 +8,8 @@ export interface IMeme {
   id: number;
   title: string;
   imgUrl: string;
-  likes: number;
+  likes: string;
   link: string;
 }
+
+export type InputField = "title" | "imgUrl" | "likes" | "link";
