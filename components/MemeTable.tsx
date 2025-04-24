@@ -28,7 +28,11 @@ const MemeTable = ({
     switch (columns) {
       case "actions":
         return (
-          <Button color="secondary" onPress={() => onEditPress(meme.id)}>
+          <Button
+            color="secondary"
+            size="sm"
+            onPress={() => onEditPress(meme.id)}
+          >
             Edit
           </Button>
         );
@@ -40,28 +44,29 @@ const MemeTable = ({
   return (
     <Table
       aria-label="Example table with dynamic content"
-      className="my-6"
+      className="my-6 "
       classNames={{
-        wrapper: "w-full md:w-auto", // Full width on mobile, auto width on larger screens
-        base: "max-w-[100vw] overflow-x-auto", // Prevent horizontal overflow
-        table: "min-w-[375px]",
+        wrapper: "w-full md:w-auto p-0 sm:p-4 ",
       }}
       isVirtualized={memes.length > 100}
       maxTableHeight={500}
     >
       <TableHeader columns={columns}>
-        {(column) => (
-          <TableColumn key={column.key}>
-            {column.label}
-          </TableColumn>
-        )}
+        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
       </TableHeader>
       <TableBody items={memes}>
         {(item) => (
           <TableRow key={item.id}>
             {(columnKey) => (
-              // <TableCell className="w-[80px] md:w-auto h-[100px]">{renderCell(item, columnKey)}</TableCell>
-              <TableCell className="min-w-[20px] overflow-x-hidden">{renderCell(item, columnKey)}</TableCell>
+              <TableCell
+                className={`px-[4px] sm:px-3 text-xs md:text-sm ${
+                  columnKey === "imgUrl"
+                    ? "max-w-[120px] xs:max-w-[170px] sm:max-w-[300px] md:max-w-[400px] xl:max-w-[1200px] overflow-hidden"
+                    : ""
+                }`}
+              >
+                {renderCell(item, columnKey)}
+              </TableCell>
             )}
           </TableRow>
         )}

@@ -60,7 +60,6 @@ const TablePage = () => {
     [editedMemeObj],
   );
 
-  // update this
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       if (fieldsErrors.imgUrl)
