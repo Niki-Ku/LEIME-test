@@ -15,13 +15,11 @@ const CardComponent = ({
 }) => {
   return (
     <Card className="py-4">
-      <CardBody className="overflow-visible py-2">
+      <CardBody className="overflow-visible py-2 flex justify-center items-center">
         <Image
           alt="Card background"
-          className="object-cover rounded-xl"
+          className="rounded-xl object-fill object-center max-h-[300px]"
           src={imgUrl}
-          // width={270}
-          // width={auto}
         />
       </CardBody>
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
