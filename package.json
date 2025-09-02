@@ -22,7 +22,7 @@
     "@heroui/pagination": "^2.2.15",
     "@heroui/snippet": "2.2.18",
     "@heroui/switch": "2.2.15",
-    "@heroui/system": "2.4.13",
+    "@heroui/system": "2.4.18",
     "@heroui/table": "^2.2.16",
     "@heroui/theme": "2.4.13",
     "@react-aria/ssr": "3.9.7",
